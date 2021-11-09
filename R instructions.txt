@@ -1,0 +1,24 @@
+https://medium.com/fabcoding/laravel-redirect-users-according-to-roles-and-protect-routes-bde324fe1823
+
+1.composer create-project --prefer-dist laravel/laravel mystore  // git bash www folder 
+2.composer require laravel/ui
+3.php artisan ui vue --auth
+4.npm install vue-loader@^15.9.8 --save-dev --legacy-peer-deps  // had problems with npm run dev, so changed from 15.9.7 to 15.9.8
+5.npm install && npm run dev
+
+6.add to users table role column
+7. php artisan migrate
+8.add to RegisterController: 'role' => ['required', 'string', 'max:255'] //to validator and create
+9.creating seeders for user table : php artisan make:seeder UsersTableSeeder
+10.to databaseSeeder run method : $this->call(UsersTableSeeder::class);
+11.run: composer dump-autoload
+12.run: php artisan db:seed
+
+13.create views for admin and customer
+14.create controllers for admin and customer and modify them to return views
+15.create routes 
+16.login contoller add logic to redirect method
+17.change handle method logic in middleware redirectIfAuthenticated
+18.create new middleware for role check
+19.add role in kernel in routeMiddleware array
+20.add middleware to routes in web.php
